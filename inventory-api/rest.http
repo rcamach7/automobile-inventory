@@ -1,0 +1,22 @@
+GET http://localhost:3000/inventory/make
+
+###
+
+POST http://localhost:3000/inventory/make/
+Content-Type: application/json
+
+{
+  "name": "Scion"
+}
+
+###
+DELETE http://localhost:3000/inventory/make/622e6cbc22b794695b738ec1/delete
+
+### 
+
+PUT http://localhost:3000/inventory/make/622e766deffff85b942e3088/put
+Content-Type: application/json
+
+{
+  "name": "Mclaren"
+}

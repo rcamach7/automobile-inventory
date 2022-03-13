@@ -11,8 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^3.2.3",
     "debug": "^4.3.3",
     "express": "^4.17.3",
+    "express-validator": "^6.14.0",
     "mongoose": "^6.2.6",
     "nodemon": "^2.0.15"
   }

@@ -1,0 +1,19 @@
+{
+  "name": "inventory-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www",
+    "serverstart": "DEBUG=inventory-api:* npm run devstart"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^4.3.3",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.6",
+    "nodemon": "^2.0.15"
+  }
+}

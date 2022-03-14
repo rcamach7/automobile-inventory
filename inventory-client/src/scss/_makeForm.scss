@@ -1,0 +1,34 @@
+.formBackdrop {
+  height: 100vh;
+  width: 100vw;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .MakeForm {
+    height: 200px;
+    width: 200px;
+    padding: 20px;
+
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+    .close-form {
+      margin-left: auto;
+      cursor: pointer;
+    }
+    .submit-btn {
+      margin-top: auto;
+    }
+  }
+}

@@ -1,19 +1,14 @@
-.Automobile {
-  height: 200px;
-  width: 200px;
+.MakeItem {
+  text-align: center;
+  list-style: none;
+  padding: 5px;
+  border: solid black 1px;
 
-  border: solid black 2px;
-  padding: 10px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  .buttonContainer {
+  .formContainer {
     display: flex;
     gap: 5px;
 
+    input,
     button {
       cursor: pointer;
       padding: 5px;

@@ -2,8 +2,18 @@
   flex: 5;
   height: calc(100vh - 100px);
   padding: 20px;
+  text-align: center;
 
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  .makesContainer {
+    padding: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .automobileContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 }

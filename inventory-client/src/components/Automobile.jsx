@@ -6,6 +6,11 @@ function Automobile(props) {
       <p>Model: {props.automobile.model}</p>
       <p>Year: {props.automobile.year}</p>
       <p>Price: {props.automobile.price}</p>
+
+      <div className="buttonContainer">
+        <button className="update-btn">Update</button>
+        <button className="delete-btn">Delete</button>
+      </div>
     </div>
   );
 }

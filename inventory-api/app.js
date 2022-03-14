@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const logger = require("morgan");
 const inventoryRouter = require("./routes/inventoryRouter");
 const app = express();
 
@@ -12,6 +13,7 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
 
 // Middleware set-up
+app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

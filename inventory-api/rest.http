@@ -10,7 +10,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/inventory/make/622e6cbc22b794695b738ec1/delete
+DELETE http://localhost:3000/inventory/make/622e999bc59b75990b045eb3/delete
 
 ### 
 
@@ -19,4 +19,21 @@ Content-Type: application/json
 
 {
   "name": "Mclaren"
+}
+
+### 
+
+GET http://localhost:3000/inventory/automobiles/
+
+### 
+
+POST http://localhost:3000/inventory/automobiles/
+Content-Type: application/json
+
+{
+  "make" : "Scion",
+  "engine" : "v4",
+  "model" : "xB",
+  "year" : 2006,
+  "price" : 5000,
 }

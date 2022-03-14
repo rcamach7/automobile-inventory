@@ -1,13 +1,14 @@
-const Make = require("../models/Make");
 const Automobile = require("../models/Automobile");
 const { body, validationResult } = require("express-validator");
 
 exports.automobile_get = (req, res, next) => {
-  Automobile.find().exec((err, results) => {
-    if (err) next(err);
+  Automobile.find()
+    .populate("make")
+    .exec((err, results) => {
+      if (err) next(err);
 
-    res.json(results);
-  });
+      res.json(results);
+    });
 };
 
 exports.automobile_post = [

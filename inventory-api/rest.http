@@ -1,8 +1,8 @@
-GET http://localhost:3000/inventory/make
+GET http://localhost:3000/inventory/makes
 
 ###
 
-POST http://localhost:3000/inventory/make/
+POST http://localhost:3000/inventory/makes/
 Content-Type: application/json
 
 {
@@ -10,11 +10,11 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/inventory/make/622e999bc59b75990b045eb3/delete
+DELETE http://localhost:3000/inventory/makes/622e999bc59b75990b045eb3/delete
 
 ### 
 
-PUT http://localhost:3000/inventory/make/622e766deffff85b942e3088/put
+PUT http://localhost:3000/inventory/makes/622e766deffff85b942e3088/put
 Content-Type: application/json
 
 {
@@ -31,7 +31,7 @@ POST http://localhost:3000/inventory/automobiles/
 Content-Type: application/json
 
 {
-  "make" : "Scion",
+  "make" : "622eca9f34d20d99eec59221",
   "engine" : "v4",
   "model" : "xB",
   "year" : 2006,

@@ -7,16 +7,16 @@ const automobileController = require("../controllers/automobileController");
 
 // * Make CRUD endpoints
 // Return all current makes
-router.get("/make/", makeController.make_get);
+router.get("/makes/", makeController.make_get);
 
 // Create a new make
-router.post("/make/", makeController.make_post);
+router.post("/makes/", makeController.make_post);
 
 // Delete a make given an ID parameter
-router.delete("/make/:id/delete", makeController.make_delete);
+router.delete("/makes/:id/delete", makeController.make_delete);
 
 // Update a make name given an ID parameter and body information
-router.put("/make/:id/put", makeController.make_put);
+router.put("/makes/:id/put", makeController.make_put);
 
 // * Automobile CRUD endpoints
 // Return all automobile documents

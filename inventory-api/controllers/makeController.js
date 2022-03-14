@@ -1,4 +1,5 @@
 const Make = require("../models/Make");
+const Automobile = require("../models/Automobile");
 const { body, validationResult } = require("express-validator");
 
 // Retrieve all makes currently in our database
@@ -43,14 +44,20 @@ exports.make_post = [
   },
 ];
 
+// Deletes a mke with a specific ID only if not associated with a automobile
 exports.make_delete = (req, res, next) => {
-  Make.findByIdAndDelete(req.params.id, (err, result) => {
-    if (err) next(err);
-
-    if (result === undefined) {
-      res.send(`Make with ID: ${req.params.id} not found`);
+  Automobile.find({ make: req.params.id }).exec((err, results) => {
+    // Make sure there aren't any automobiles associated with this make before deleting
+    if (results.length > 0) {
+      res.send(
+        "Please delete any automobiles associated with this make before deleting"
+      );
     } else {
-      res.send("Make has been deleted");
+      Make.findByIdAndDelete(req.params.id, (err) => {
+        if (err) next(err);
+
+        res.send("Make successfully deleted");
+      });
     }
   });
 };

@@ -12,8 +12,8 @@
   justify-content: center;
   align-items: center;
   .AutomobileForm {
-    height: 200px;
-    width: 200px;
+    height: fit-content;
+    width: 250px;
     padding: 20px;
 
     background-color: white;
@@ -29,6 +29,8 @@
     }
     .submit-btn {
       margin-top: auto;
+      color: white;
+      background-color: rgb(104, 139, 255);
     }
   }
 }

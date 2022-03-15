@@ -11,6 +11,15 @@ exports.automobile_get = (req, res, next) => {
     });
 };
 
+// Gets an automobile with a provided params automobile ID
+exports.automobile_get_id = (req, res, next) => {
+  Automobile.findById(req.params.id).exec((err, automobile) => {
+    if (err) next(err);
+
+    res.json(automobile);
+  });
+};
+
 exports.automobile_post = [
   // Run the provided data through our validators
   body("make", "Please provide an make")
@@ -44,7 +53,7 @@ exports.automobile_post = [
       newAutomobile.save((err) => {
         if (err) next(err);
 
-        res.json(newAutomobile);
+        res.redirect("/");
       });
     }
   },
@@ -89,7 +98,7 @@ exports.automobile_put = [
         model: req.body.model,
         year: req.body.year,
         price: req.body.price,
-        id_: req.params.id,
+        _id: req.params.id,
       });
 
       Automobile.findByIdAndUpdate(
@@ -99,7 +108,7 @@ exports.automobile_put = [
         (err) => {
           if (err) next(err);
 
-          res.json(updatedAutomobile);
+          res.redirect("/");
         }
       );
     }

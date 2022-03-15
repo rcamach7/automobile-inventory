@@ -8,6 +8,8 @@ const automobileController = require("../controllers/automobileController");
 // * Make CRUD endpoints
 // Return all current makes
 router.get("/makes/", makeController.make_get);
+// Return specific make information
+router.get("/makes/:id", makeController.make_get_id);
 
 // Create a new make
 router.post("/makes/", makeController.make_post);
@@ -21,6 +23,8 @@ router.put("/makes/:id/put", makeController.make_put);
 // * Automobile CRUD endpoints
 // Return all automobile documents
 router.get("/automobiles/", automobileController.automobile_get);
+// Return specific instance of an automobile
+router.get("/automobiles/:id", automobileController.automobile_get_id);
 
 // Create new automobile document
 router.post("/automobiles/", automobileController.automobile_post);

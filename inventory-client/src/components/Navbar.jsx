@@ -4,7 +4,9 @@ function Navbar(props) {
       <button onClick={() => props.setShowMakeForm(true)}>
         Create New Make
       </button>
-      <button>Create New Automobile</button>
+      <button onClick={() => props.setShowAutomobileForm(true)}>
+        Create New Automobile
+      </button>
     </aside>
   );
 }

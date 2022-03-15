@@ -8,7 +8,12 @@ function Automobile(props) {
       <p>Price: {props.automobile.price}</p>
 
       <div className="buttonContainer">
-        <button className="update-btn">Update</button>
+        <button
+          className="update-btn"
+          onClick={() => props.loadAutomobileForm(props.automobile._id)}
+        >
+          Update
+        </button>
         <button className="delete-btn">Delete</button>
       </div>
     </div>

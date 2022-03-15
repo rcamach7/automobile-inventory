@@ -10,6 +10,14 @@ exports.make_get = (req, res, next) => {
     res.json(results);
   });
 };
+// Retrieve a specific make
+exports.make_get_id = (req, res, next) => {
+  Make.findById(req.params.id).exec((err, make) => {
+    if (err) next(err);
+
+    res.json(make);
+  });
+};
 
 // Will insert a new make into our database
 exports.make_post = [
@@ -36,7 +44,7 @@ exports.make_post = [
             if (err) next(err);
 
             // We will send back the created make as a successful signal of creation
-            res.json(newMake);
+            res.redirect("/");
           });
         }
       });
@@ -44,7 +52,7 @@ exports.make_post = [
   },
 ];
 
-// Deletes a mke with a specific ID only if not associated with a automobile
+// Deletes a make with a specific ID only if not associated with a automobile
 exports.make_delete = (req, res, next) => {
   Automobile.find({ make: req.params.id }).exec((err, results) => {
     // Make sure there aren't any automobiles associated with this make before deleting
@@ -56,7 +64,7 @@ exports.make_delete = (req, res, next) => {
       Make.findByIdAndDelete(req.params.id, (err) => {
         if (err) next(err);
 
-        res.send("Make successfully deleted");
+        res.redirect("/");
       });
     }
   });
@@ -82,7 +90,8 @@ exports.make_put = [
       Make.findByIdAndUpdate(req.params.id, updatedMake, {}, (err) => {
         if (err) next(err);
 
-        res.json(updatedMake);
+        // res.json(updatedMake);
+        res.redirect("/");
       });
     }
   },

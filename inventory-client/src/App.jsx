@@ -2,7 +2,7 @@ import "./scss/App.scss";
 import Navbar from "./components/Navbar";
 import Inventory from "./components/Inventory";
 import MakeForm from "./components/form-components/MakeForm";
-import AutomobileForm from "./components/form-components/automobileForm";
+import AutomobileForm from "./components/form-components/AutomobileForm";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -35,6 +35,12 @@ function App() {
     setShowMakeForm(false);
   };
 
+  const closeAutomobileForm = () => {
+    // Clean up any previously stored objects
+    setAutomobileInformation(null);
+    setShowAutomobileForm(false);
+  };
+
   const loadMakeForm = (make_id) => {
     // If make ID is provided, it means we are updating a make and will display it's information in the form
     if (make_id !== undefined) {
@@ -49,6 +55,19 @@ function App() {
     }
   };
 
+  const loadAutomobileForm = (automobile_id) => {
+    if (automobile_id !== undefined) {
+      // Get automobile information and provide it to form to pre populate data
+      axios.get(`/inventory/automobiles/${automobile_id}`).then((result) => {
+        setAutomobileInformation(result.data);
+        setShowAutomobileForm(true);
+      });
+    } else {
+      // No make ID was provided so we are creating a new make
+      setShowAutomobileForm(true);
+    }
+  };
+
   return (
     <div className="App">
       <header className="website-title">
@@ -56,12 +75,16 @@ function App() {
       </header>
 
       <div className="mainContainer">
-        <Navbar setShowMakeForm={setShowMakeForm} />
+        <Navbar
+          setShowMakeForm={setShowMakeForm}
+          setShowAutomobileForm={setShowAutomobileForm}
+        />
         <Inventory
           inventory={inventory}
           makes={makes}
           setShowMakeForm={setShowMakeForm}
           loadMakeForm={loadMakeForm}
+          loadAutomobileForm={loadAutomobileForm}
         />
       </div>
 
@@ -72,7 +95,13 @@ function App() {
           closeMakeForm={closeMakeForm}
         />
       ) : null}
-      {showAutomobileForm ? <AutomobileForm /> : null}
+      {showAutomobileForm ? (
+        <AutomobileForm
+          automobileInformation={automobileInformation}
+          closeAutomobileForm={closeAutomobileForm}
+          makes={makes}
+        />
+      ) : null}
     </div>
   );
 }

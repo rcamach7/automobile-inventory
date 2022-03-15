@@ -21,7 +21,13 @@ function Inventory(props) {
       <p>Automobiles Available</p>
       <div className="automobileContainer">
         {props.inventory.map((automobile, i) => {
-          return <Automobile key={i} automobile={automobile} />;
+          return (
+            <Automobile
+              key={i}
+              automobile={automobile}
+              loadAutomobileForm={props.loadAutomobileForm}
+            />
+          );
         })}
       </div>
     </aside>
